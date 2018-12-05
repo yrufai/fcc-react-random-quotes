@@ -1,0 +1,41 @@
+{
+  "name": "reactapp-boillerplate",
+  "version": "1.0.0",
+  "description": "simple react app",
+  "scripts": {
+    "serve": "webpack-dev-server --open  ",
+    "dev": "webpack --mode=development --watch",
+    "build": "webpack -p --env production ",
+    "start": "node server/server.js",
+    "heroku-postbuild": "npm run build",
+    "test": "jest"
+  },
+  "author": "Yakubu Ahmed El-Rufai",
+  "license": "MIT",
+  "dependencies": {
+    "autoprefixer": "^9.3.1",
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.0.0",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "css-loader": "^1.0.0",
+    "express": "^4.16.4",
+    "mini-css-extract-plugin": "^0.4.5",
+    "node-sass": "^4.9.4",
+    "postcss-loader": "^3.0.0",
+    "react": "^16.5.2",
+    "react-dom": "^16.5.2",
+    "react-modal": "^2.2.2",
+    "react-router-dom": "^4.3.1",
+    "sass-loader": "^7.1.0",
+    "style-loader": "^0.23.1",
+    "webpack": "^4.20.2"
+  },
+  "devDependencies": { 
+    "webpack-cli": "^3.1.2",
+    "live-server": "^1.2.0",
+    "jest": "^23.6.0",
+    "webpack-dev-server": "^3.1.9"
+  }
