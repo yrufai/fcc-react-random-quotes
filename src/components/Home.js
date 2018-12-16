@@ -17,7 +17,7 @@ class Home extends React.Component {
     // moves to display next quotes 
     nextQuote() {
         const random = this.state.quotes[Math.floor(Math.random() * this.state.quotes.length)]
-        console.log("receiving message from ", random);
+        console.log("receiving ", random);
         this.setState({
             colors: random
         })
