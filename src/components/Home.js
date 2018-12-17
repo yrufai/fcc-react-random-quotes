@@ -5,7 +5,7 @@ class Home extends React.Component {
         super(props);
         this.state = {
             quotes: ["red", "yellow", "blue", "green", "purple", "pink"],
-            colors: "",
+            colors: ["red", "blue", "green"],
         };
         this.nextQuote = this.nextQuote.bind(this);
         this.getColors = this.getColors.bind(this);
