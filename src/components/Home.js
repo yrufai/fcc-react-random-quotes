@@ -19,7 +19,7 @@ class Home extends React.Component {
         const random = this.state.quotes[Math.floor(Math.random() * this.state.quotes.length)]
         console.log("receiving ", random);
         this.setState({
-            colors: this.state.colors.concat(random)
+            colors: random
         })
     }
     render() {
