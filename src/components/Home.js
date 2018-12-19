@@ -5,7 +5,7 @@ class Home extends React.Component {
         super(props);
         this.state = {
             quotes: ["red", "yellow", "blue", "green", "purple", "pink"],
-            colors: ["red", "blue", "green"],
+            colors: [],
         };
         this.nextQuote = this.nextQuote.bind(this);
         this.getColors = this.getColors.bind(this);
@@ -19,13 +19,13 @@ class Home extends React.Component {
         const random = this.state.quotes[Math.floor(Math.random() * this.state.quotes.length)]
         console.log("receiving ", random);
         this.setState({
-            colors: random
+            colors: this.state.colors.concat(random)
         })
     }
     render() {
         return (
             <div>
-                <h1>{this.state.quotes.map((quote, index)=>{
+                <h1>{this.state.colors.map((quote, index)=>{
                     return quote
                 }) }</h1>
                 <button onClick={this.nextQuote}>New Quotes</button>
