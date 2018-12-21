@@ -1,5 +1,4 @@
 import React from "react";
-
 class Home extends React.Component {
     constructor(props) {
         super(props);
@@ -8,11 +7,6 @@ class Home extends React.Component {
             colors: [],
         };
         this.nextQuote = this.nextQuote.bind(this);
-        this.getColors = this.getColors.bind(this);
-    }
-    getColors() {
-        const randomColors = this.state.colors[Math.floor(Math.random() * this.state.colors.length)]
-        return randomColors;
     }
     // moves to display next quotes 
     nextQuote() {
@@ -24,10 +18,8 @@ class Home extends React.Component {
     }
     render() {
         return (
-            <div>
-                <h1>{this.state.colors.map((quote, index)=>{
-                    return quote
-                }) }</h1>
+            <div style={{backgroundColor: this.state.colors}}>
+                <h1>{this.state.colors}</h1>
                 <button onClick={this.nextQuote}>New Quotes</button>
             </div>
         )
