@@ -3,24 +3,21 @@ class Home extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            quotes: ["red", "yellow", "blue", "green", "purple", "pink"],
-            colors: [],
+            colors: ["red", "yellow", "blue", "green", "purple", "pink"],
         };
-        this.nextQuote = this.nextQuote.bind(this);
+        this.next = this.next.bind(this);
     }
     // moves to display next quotes 
-    nextQuote() {
-        const random = this.state.quotes[Math.floor(Math.random() * this.state.quotes.length)]
-        console.log("receiving ", random);
-        this.setState({
-            colors: random
-        })
+    next() {
+        const {colors} = this.state
+        const random = colors [Math.floor(Math.random() * color.length)]
+        document.body.style.backgroundColor = random;
     }
+    
     render() {
         return (
-            <div style={{backgroundColor: this.state.colors}}>
-                <h1>{this.state.colors}</h1>
-                <button onClick={this.nextQuote}>New Quotes</button>
+            <div>
+                <button onClick={this.next}>Next</button>
             </div>
         )
     }
