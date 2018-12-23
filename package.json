@@ -13,6 +13,10 @@
   "author": "Yakubu Ahmed El-Rufai",
   "license": "MIT",
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.12",
+    "@fortawesome/free-brands-svg-icons": "^5.6.3",
+    "@fortawesome/free-solid-svg-icons": "^5.6.3",
+    "@fortawesome/react-fontawesome": "^0.1.3",
     "autoprefixer": "^9.3.1",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
