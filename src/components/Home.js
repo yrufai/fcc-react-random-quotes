@@ -27,7 +27,7 @@ class Home extends React.Component {
             .then(quotes => this.setState({ quotes }, this.next))
             .catch(error => console.log("something is wrong", error))
     }
-    CSSTransitions(){
+    CSSTransitions() {
         return this.setState({
             loaded: !this.state.loaded
         });
@@ -60,7 +60,7 @@ class Home extends React.Component {
         }
         return undefined;
     }
-  
+
     render() {
         return (
             <div>
@@ -72,9 +72,11 @@ class Home extends React.Component {
                             timeout={600}
                             classNames="fade"
                         >
-                            <div className="quote-text" ><FontAwesomeIcon icon={faQuoteLeft} size="lg" />{this.selectedQuote ? " " + this.selectedQuote.quote + " " : ""}<FontAwesomeIcon icon={faQuoteRight} size="lg" /></div>
+                            <div>
+                                <div className="quote-text" ><FontAwesomeIcon icon={faQuoteLeft} size="lg" />{this.selectedQuote ? " " + this.selectedQuote.quote + " " : ""}<FontAwesomeIcon icon={faQuoteRight} size="lg" /></div>
+                                <div className="quote-author" >{this.selectedQuote ? this.selectedQuote.author : ""}</div>
+                            </div>
                         </CSSTransition>
-                        <div className="quote-author" >{this.selectedQuote ? this.selectedQuote.author : ""}</div>
                         <Button className="btn btn-success btn-lg float-right" onClick={this.next}>New Quotes</Button>
                         <Button className="btn btn-success btn-lg float-left" ><FontAwesomeIcon icon={faGithub} />{"  "} Github</Button>
                     </div>
