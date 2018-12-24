@@ -2,9 +2,10 @@ import React from "react";
 import { random } from "lodash";
 import { Button } from 'reactstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faGithub } from "@fortawesome/free-brands-svg-icons";
+import { faGithub, faFacebook } from "@fortawesome/free-brands-svg-icons";
 import { faQuoteLeft, faQuoteRight } from "@fortawesome/free-solid-svg-icons";
-import { TransitionGroup, CSSTransition } from "react-transition-group"
+import { CSSTransition } from "react-transition-group";
+import { FacebookProvider, ShareButton } from "react-facebook";
 
 class Home extends React.Component {
     constructor(props) {
@@ -79,6 +80,11 @@ class Home extends React.Component {
                         </CSSTransition>
                         <Button className="btn btn-success btn-lg float-right" onClick={this.next}>New Quotes</Button>
                         <Button className="btn btn-success btn-lg float-left" ><FontAwesomeIcon icon={faGithub} />{"  "} Github</Button>
+                        <FacebookProvider appId="316449988965203" >
+                            <ShareButton href="http://www.facebook.com" >
+                            <a className="btn btn-lg float-left" ><FontAwesomeIcon icon={faFacebook} />{"  "} Facebook</a>
+                            </ShareButton>
+                        </FacebookProvider>
                     </div>
                     <div className="footer"> by Yakubu Ahmed El-rufai</div>
                 </div>
