@@ -4,17 +4,20 @@ import { Button } from 'reactstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import { faQuoteLeft, faQuoteRight } from "@fortawesome/free-solid-svg-icons";
+import { TransitionGroup, CSSTransition } from "react-transition-group"
 
 class Home extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            loaded: false,
             selectedQuotesIndex: null,
             quotes: [],
-            colors: ["#E52B50","#FFBF00","#9966CC","#FBCEB1","#89CFF0","#0095B6","#800020","#DE3163","#007BA7","#F88379","#50C878","#29AB87","#B57EDC","#003153","#EE82EE"]
+            colors: ["#E52B50", "#FFBF00", "#9966CC", "#FBCEB1", "#89CFF0", "#0095B6", "#800020", "#DE3163", "#007BA7", "#F88379", "#50C878", "#29AB87", "#B57EDC", "#003153", "#EE82EE"]
         };
         this.next = this.next.bind(this);
         this.selectQuotesIndex = this.selectQuotesIndex.bind(this);
+        this.CSSTransitions = this.CSSTransitions.bind(this);
     }
     // moves to display next quotes 
 
@@ -24,7 +27,11 @@ class Home extends React.Component {
             .then(quotes => this.setState({ quotes }, this.next))
             .catch(error => console.log("something is wrong", error))
     }
-
+    CSSTransitions(){
+        return this.setState({
+            loaded: !this.state.loaded
+        });
+    }
     next() {
         const { colors } = this.state
         const random = colors[Math.floor(Math.random() * colors.length)]
@@ -37,7 +44,7 @@ class Home extends React.Component {
         this.setState({
             selectedQuotesIndex: this.selectQuotesIndex()
         });
-
+        this.CSSTransitions();
     }
 
     get selectedQuote() {
@@ -53,16 +60,23 @@ class Home extends React.Component {
         }
         return undefined;
     }
-
+  
     render() {
         return (
             <div>
                 <div id="wrapper">
                     <div id="quotes-box">
-                        <div className="quote-text" ><FontAwesomeIcon icon={faQuoteLeft} size="lg" />{this.selectedQuote ? " "+this.selectedQuote.quote+" " : ""}<FontAwesomeIcon icon={faQuoteRight} size="lg" /></div>
+                        <CSSTransition
+                            in={this.state.loaded}
+                            appear={true}
+                            timeout={600}
+                            classNames="fade"
+                        >
+                            <div className="quote-text" ><FontAwesomeIcon icon={faQuoteLeft} size="lg" />{this.selectedQuote ? " " + this.selectedQuote.quote + " " : ""}<FontAwesomeIcon icon={faQuoteRight} size="lg" /></div>
+                        </CSSTransition>
                         <div className="quote-author" >{this.selectedQuote ? this.selectedQuote.author : ""}</div>
                         <Button className="btn btn-success btn-lg float-right" onClick={this.next}>New Quotes</Button>
-                        <Button className="btn btn-success btn-lg float-left" ><FontAwesomeIcon icon={faGithub}  />{"  "} Github</Button>
+                        <Button className="btn btn-success btn-lg float-left" ><FontAwesomeIcon icon={faGithub} />{"  "} Github</Button>
                     </div>
                     <div className="footer"> by Yakubu Ahmed El-rufai</div>
                 </div>

@@ -36,7 +36,6 @@
     margin-bottom: 5rem;
     position: relative;
     font-size: $ml-size;
-
 }
 
 .button{
@@ -55,4 +54,33 @@
     font-size: 1.75rem;
     margin: auto;
     padding-top: 1.5rem;
+}
+ 
+  //enter
+ .fade-enter{
+     opacity: 0.3;
+ }
+ .fade-enter-active{
+     opacity: 1;
+     transition: opacity 300ms ease-in 300ms;
+ }
+  //exit
+ .fade-exit{
+    opacity: 0;
+ }
+ .fade-exit-active{
+     opacity: 0.5;
+     transition: opacity 300ms ease-in 300ms ;
+ }
+ .fade-exit-done{
+     opacity: 1;
+ }
+
+ //on load
+ .fade-appear{
+    opacity: 0.3;
+}
+.fade-appear-active{
+    opacity: 1;
+    transition: opacity 300ms ease-in 300ms ;
 }
