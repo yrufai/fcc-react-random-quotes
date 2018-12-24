@@ -1,7 +1,7 @@
 {
-  "name": "reactapp-boillerplate",
+  "name": "fcc-react-random-qoutes",
   "version": "1.0.0",
-  "description": "simple react app",
+  "description": "randomly generate qoutes",
   "scripts": {
     "serve": "webpack-dev-server --mode=development --open  ",
     "dev": "webpack --mode=development --watch",
