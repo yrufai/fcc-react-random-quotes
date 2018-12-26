@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub, faFacebook } from "@fortawesome/free-brands-svg-icons";
 import { faQuoteLeft, faQuoteRight } from "@fortawesome/free-solid-svg-icons";
 import { CSSTransition } from "react-transition-group";
-import { FacebookProvider, ShareButton } from "react-facebook";
+import { FacebookShareButton } from "react-share";
 
 class Home extends React.Component {
     constructor(props) {
@@ -62,9 +62,11 @@ class Home extends React.Component {
         }
         return undefined;
     }
-facebookContent(){
-    return this.selectedQuote();
-}
+    facebookContent() {
+        let content = document.getElementById("#quotes-box");
+        return content;
+    }
+
     render() {
         return (
             <div>
@@ -76,18 +78,21 @@ facebookContent(){
                             timeout={600}
                             classNames="fade"
                         >
-                            <div>
+                            <div className="fbShareContent">
                                 <div className="quote-text" ><FontAwesomeIcon icon={faQuoteLeft} size="lg" />{this.selectedQuote ? " " + this.selectedQuote.quote + " " : ""}<FontAwesomeIcon icon={faQuoteRight} size="lg" /></div>
                                 <div className="quote-author" >{this.selectedQuote ? this.selectedQuote.author : ""}</div>
                             </div>
                         </CSSTransition>
                         <Button className="btn btn-success btn-lg float-right" onClick={this.next}>New Quotes</Button>
-                        <Button className="btn btn-success btn-lg float-left" ><FontAwesomeIcon icon={faGithub} />{"  "} Github</Button>
-                        <FacebookProvider appId="316449988965203" >
-                            <ShareButton href="http://www.facebook.com" >
-                            <a className="btn btn-lg float-left" onClick={this.facebookContent} ><FontAwesomeIcon icon={faFacebook} />{"  "} Facebook</a>
-                            </ShareButton>
-                        </FacebookProvider>
+                        <Button className="btn float-left" ><FontAwesomeIcon icon={faGithub} />{"  "} </Button>
+                        <FacebookShareButton
+                            url="http://fcc-react-random-quotes.herokuapp.com" 
+                            quote="Quotes">
+                            { ShareCount=>( 
+                                <span className="fbShareCount">{ShareCount}</span>
+                            )}
+                            <Button className="btn float-left" ><FontAwesomeIcon icon={faFacebook} />{"  "} </Button>
+                        </FacebookShareButton>
                     </div>
                     <div className="footer"> by Yakubu Ahmed El-rufai</div>
                 </div>
