@@ -19,6 +19,7 @@ class Home extends React.Component {
         this.next = this.next.bind(this);
         this.selectQuotesIndex = this.selectQuotesIndex.bind(this);
         this.CSSTransitions = this.CSSTransitions.bind(this);
+        this.facebookContent = this.facebookContent.bind(this);
     }
     // moves to display next quotes 
 
@@ -61,7 +62,9 @@ class Home extends React.Component {
         }
         return undefined;
     }
-
+facebookContent(){
+    return this.selectedQuote();
+}
     render() {
         return (
             <div>
@@ -82,7 +85,7 @@ class Home extends React.Component {
                         <Button className="btn btn-success btn-lg float-left" ><FontAwesomeIcon icon={faGithub} />{"  "} Github</Button>
                         <FacebookProvider appId="316449988965203" >
                             <ShareButton href="http://www.facebook.com" >
-                            <a className="btn btn-lg float-left" ><FontAwesomeIcon icon={faFacebook} />{"  "} Facebook</a>
+                            <a className="btn btn-lg float-left" onClick={this.facebookContent} ><FontAwesomeIcon icon={faFacebook} />{"  "} Facebook</a>
                             </ShareButton>
                         </FacebookProvider>
                     </div>
