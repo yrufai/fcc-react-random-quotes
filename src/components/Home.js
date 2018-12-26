@@ -19,7 +19,6 @@ class Home extends React.Component {
         this.next = this.next.bind(this);
         this.selectQuotesIndex = this.selectQuotesIndex.bind(this);
         this.CSSTransitions = this.CSSTransitions.bind(this);
-        this.facebookContent = this.facebookContent.bind(this);
     }
     // moves to display next quotes 
 
@@ -62,10 +61,6 @@ class Home extends React.Component {
         }
         return undefined;
     }
-    facebookContent() {
-        let content = document.getElementById("#quotes-box");
-        return content;
-    }
 
     render() {
         return (
@@ -85,13 +80,10 @@ class Home extends React.Component {
                         </CSSTransition>
                         <Button className="btn btn-success btn-lg float-right" onClick={this.next}>New Quotes</Button>
                         <Button className="btn float-left" ><FontAwesomeIcon icon={faGithub} />{"  "} </Button>
-                        <FacebookShareButton
-                            url="http://fcc-react-random-quotes.herokuapp.com" 
-                            quote="Quotes">
-                            { ShareCount=>( 
-                                <span className="fbShareCount">{ShareCount}</span>
-                            )}
-                            <Button className="btn float-left" ><FontAwesomeIcon icon={faFacebook} />{"  "} </Button>
+                        <FacebookShareButton 
+                        url="http://fcc-react-random-quotes.herokuapp.com" 
+                        quote={"Quotes"} >
+                                <Button className="btn float-left" ><FontAwesomeIcon icon={faFacebook} />{"  "} </Button>
                         </FacebookShareButton>
                     </div>
                     <div className="footer"> by Yakubu Ahmed El-rufai</div>
