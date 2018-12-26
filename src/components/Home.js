@@ -78,12 +78,12 @@ class Home extends React.Component {
                                 <div className="quote-author" >{this.selectedQuote ? this.selectedQuote.author : ""}</div>
                             </div>
                         </CSSTransition>
-                        <Button className="btn btn-success btn-lg float-right" onClick={this.next}>New Quotes</Button>
-                        <Button className="btn float-left" ><FontAwesomeIcon icon={faGithub} />{"  "} </Button>
+                        <Button className="btn btn-success btn-lg float-right" onClick={this.next}>New Quote</Button>
+                        <Button className="btn btn-lg float-left" ><FontAwesomeIcon icon={faGithub} />{"  "} </Button>
                         <FacebookShareButton 
                         url="http://fcc-react-random-quotes.herokuapp.com" 
                         quote={"Quotes"} >
-                                <Button className="btn float-left" ><FontAwesomeIcon icon={faFacebook} />{"  "} </Button>
+                                <Button className="btn btn-lg float-left" ><FontAwesomeIcon icon={faFacebook} />{"  "} </Button>
                         </FacebookShareButton>
                     </div>
                     <div className="footer"> by Yakubu Ahmed El-rufai</div>
