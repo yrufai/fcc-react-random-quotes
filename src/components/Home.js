@@ -2,7 +2,7 @@ import React from "react";
 import { random } from "lodash";
 import { Button } from 'reactstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faGithub, faFacebook } from "@fortawesome/free-brands-svg-icons";
+import { faGithub, faFacebook, faTwitter } from "@fortawesome/free-brands-svg-icons";
 import { faQuoteLeft, faQuoteRight } from "@fortawesome/free-solid-svg-icons";
 import { CSSTransition } from "react-transition-group";
 import { FacebookShareButton } from "react-share";
@@ -20,6 +20,7 @@ class Home extends React.Component {
         this.selectQuotesIndex = this.selectQuotesIndex.bind(this);
         this.CSSTransitions = this.CSSTransitions.bind(this);
     }
+   
     // moves to display next quotes 
 
     componentDidMount() {
@@ -47,7 +48,12 @@ class Home extends React.Component {
         });
         this.CSSTransitions();
     }
-
+    selectQuotesIndex() {
+        if (this.state.quotes.length) {
+            return random(0, this.state.quotes.length - 1);
+        }
+        return undefined;
+    }
     get selectedQuote() {
         if (!this.state.quotes.length || !Number.isInteger(this.state.selectedQuotesIndex)) {
             return
@@ -55,14 +61,9 @@ class Home extends React.Component {
         return this.state.quotes[this.state.selectedQuotesIndex];
     }
 
-    selectQuotesIndex() {
-        if (this.state.quotes.length) {
-            return random(0, this.state.quotes.length - 1);
-        }
-        return undefined;
-    }
-
     render() {
+       let tweet = <p>{this.selectedQuote ? this.selectedQuote.quote : " "}</p>
+       let tweetLink = "https://twitter.com/intent/tweet?text="
         return (
             <div>
                 <div id="wrapper">
@@ -75,11 +76,11 @@ class Home extends React.Component {
                         >
                             <div className="fbShareContent">
                                 <div className="quote-text" ><FontAwesomeIcon icon={faQuoteLeft} size="lg" />{this.selectedQuote ? " " + this.selectedQuote.quote + " " : ""}<FontAwesomeIcon icon={faQuoteRight} size="lg" /></div>
-                                <div className="quote-author" >{this.selectedQuote ? this.selectedQuote.author : ""}</div>
+                                <div className="quote-author" >--{this.selectedQuote ? this.selectedQuote.author : ""}</div>
                             </div>
                         </CSSTransition>
-                        <Button className="btn btn-success btn-lg float-right" onClick={this.next}>New Quote</Button>
-                        <Button className="btn btn-lg float-left" ><FontAwesomeIcon icon={faGithub} />{"  "} </Button>
+                        <Button className="btn btn-lg float-right " onClick={this.next}>New Quote</Button>
+                        <Button target="_blank" to={tweetLink.concat(tweet)} className="btn btn-lg float-left "  ><FontAwesomeIcon icon={faTwitter} />{"  "} </Button>
                         <FacebookShareButton 
                         url="http://fcc-react-random-quotes.herokuapp.com" 
                         quote={"Quotes"} >
