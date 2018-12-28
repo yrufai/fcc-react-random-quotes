@@ -51,12 +51,18 @@
 }
 
 .footer{
-    width: 50%;
+    text-align: center;
+    display: block;
+    width: 100%;
+    position: absolute;
     color: white;
-    font-family: cursive;
+    font-family: 'Rakkas', cursive;
     font-size: 1.75rem;
     margin: auto;
     padding-top: 1.5rem;
+    a{
+        color: white;
+    }
 }
  
   //enter

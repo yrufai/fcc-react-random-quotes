@@ -2,7 +2,7 @@ import React from "react";
 import { random } from "lodash";
 import { Button } from 'reactstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faGithub, faFacebook, faTwitter } from "@fortawesome/free-brands-svg-icons";
+import { faFacebook, faTwitter } from "@fortawesome/free-brands-svg-icons";
 import { faQuoteLeft, faQuoteRight } from "@fortawesome/free-solid-svg-icons";
 import { CSSTransition } from "react-transition-group";
 import { FacebookShareButton } from "react-share";
@@ -87,7 +87,7 @@ class Home extends React.Component {
                                 <Button className="btn btn-lg float-left" ><FontAwesomeIcon icon={faFacebook} />{"  "} </Button>
                         </FacebookShareButton>
                     </div>
-                    <div className="footer"> by Yakubu Ahmed El-rufai</div>
+                    <div className="footer"> by <a href="https://github.com/yrufai/fcc-react-random-quotes">Yakubu Ahmed El-rufai</a></div>
                 </div>
             </div>
         )
